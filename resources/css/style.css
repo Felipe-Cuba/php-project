@@ -39,10 +39,10 @@ body {
 }
 
 .form-text:focus {
-    background: #f4e2ff;
+    background: #fdf6ff;
     outline: none;
-    border-color: #9f65c0;
-    box-shadow: 0 0 10px #9f65c0;
+    border-color: #7abeca;
+    box-shadow: 0 0 10px #7abeca;
 }
 
 .form-links {

@@ -14,17 +14,8 @@ if (isset($_POST['email'])) {
     }
 
     if (count($res) > 0) {
-        foreach ($res as $row) {
-            $id = $row['id'];
-        }
-        if(!isset($_SESSION)){
-            session_start();
-			$_SESSION["id_usuario"] = $id;
-			header("Location:../forgot-password.php?exists=true");
-            echo "DEU CERTO!";
-        }
+        header("Location:../forgot-password.php?exists=true");
     } else {
-      header("Location:../login.php");
+        header("Location:../login.php");
     }
-
 }

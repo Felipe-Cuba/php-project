@@ -1,27 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php
+session_start();
+require('config/connect.php');
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro</title>
-</head>
+if (isset($_POST['username']) and $_POST['username'] != '') {
 
-<body>
+    $username = $_POST['username'];
+    $email = $_POST['email'];
+    $password = md5($_POST['pass']);
 
-    <?php
-    session_start();
-    require('config/connect.php');
+    try {
+        $smtm = $conn->prepare('SELECT * FROM `users` WHERE `email` = :email');
+        $smtm->bindParam('email', $email);
+        $smtm->execute();
+        $res = $smtm->fetchAll();
+    } catch (PDOException $e) {
+        echo "Connection failed: " . $e->getMessage();
+    }
 
-    if (isset($_POST['username']) and $_POST['username'] != '') {
-
-        $username = $_POST['username'];
-        $email = $_POST['email'];
-        $password = md5($_POST['pass']);
-
+    if (count($res) > 0) {
+        header('Location:../register.php?failedRegister=true');
+    } else {
         try {
-            $stmt = $conn->prepare('INSERT INTO users (`id`, `email`, `username`, `pass`, `active`) values (NULL, :email, :username, :pass, 1)');
+            $stmt = $conn->prepare('INSERT INTO users (`id`, `email`, `username`, `pass`, `active`, `usertype`) values (NULL, :email, :username, :pass, 1, 2)');
             $stmt->bindParam('email', $email);
             $stmt->bindParam('username', $username);
             $stmt->bindParam('pass', $password);
@@ -29,11 +29,7 @@
         } catch (PDOException $e) {
             echo "Connection failed: " . $e->getMessage();
         }
-        header('Location:../login.php');
-    } else {
-        echo "<div class='erro'><a href='../register.php'><h2>Voce deve preencher todos os campos!!!</h2></a></div>";
     }
-    ?>
-</body>
-
-</html>
+} else {
+    echo "<div class='erro'><a href='../register.php'><h2>Voce deve preencher todos os campos!!!</h2></a></div>";
+}

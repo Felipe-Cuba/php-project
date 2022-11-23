@@ -1,7 +1,8 @@
 <?php
 $host = "localhost";
 $user = "root";
-$pass = "root";
+$pass = "";
+// $pass = "root";
 $dbname = "cultista_arrependido";
 
 try {
