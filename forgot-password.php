@@ -18,20 +18,23 @@
 
 <body>
     <main>
+        <?php
+        if (!isset($_GET['exists'])) {
+        ?>
         <div class="global-container vh-100 justify-content-center align-items-center">
             <div class="card login-form">
                 <div class="card-body">
                     <div class="text-center">
                         <img src="./resources/imgs/anfitras.webp" alt="" height="150">
                         <h3 class="card-title">
-                            H4H4H4H4H4H4
+                            ANFITRIÃO
                         </h3>
                     </div>
                     <div class="card-text mb-4 mt-4">
 
-                        <form method="post" action="./services/login-service.php" class="login-form">
+                        <form method="post" action="./services/forgot-password-service.php" class="login-form">
                             <h4 class="card-title">
-                                SE CONECTE AO ANFITRIÃO
+                                ESQUECEU SUA SENHA?
                             </h4>
                             <div class="form-group my-2">
                                 <label for="emailAddress">Endereço de email</label>
@@ -40,26 +43,63 @@
 
                             </div>
 
-                            <div class="form-group my-2">
-                                <label for="password">Senha</label>
-                                <input type="password" class="form-control form-control-sm form-text" id="password"
-                                    name="pass" required>
-                                <a href="forgot-password.php" class="form-links">Esqueceu a senha?</a>
-                            </div>
-
                             <div class="d-grid gap-2">
                                 <button type="submit" class="btn btn-primary btn-forms my-2"
-                                    type="button">Conectar</button>
+                                    type="button">Enviar</button>
                             </div>
 
-                            <div class="singup">
-                                Não tem uma conta? <a href="register.php" class="form-links">Clique aqui</a>
-                            </div>
                         </form>
                     </div>
                 </div>
             </div>
         </div>
+        <?php
+        } else {
+
+
+        ?>
+        <div class="global-container vh-100 justify-content-center align-items-center">
+            <div class="card login-form">
+                <div class="card-body">
+                    <div class="text-center">
+                        <img src="./resources/imgs/anfitras.webp" alt="" height="150">
+                        <h3 class="card-title">
+                            ANFITRIÃO
+                        </h3>
+                    </div>
+                    <div class="card-text mb-4 mt-4">
+
+                        <form method="post" action="./services/password-update-service.php" class="login-form">
+                            <h4 class="card-title">
+                                DIGITE SUA NOVA SENHA
+                            </h4>
+                            <div class="form-group my-2">
+                                <label for="password">Senha</label>
+                                <input type="password" class="form-control form-control-sm form-text" id="password"
+                                    name="pass" required autofocus>
+
+                            </div>
+
+                            <div class="form-group my-2">
+                                <label for="password">Confirme sua senha</label>
+                                <input type="password" class="form-control form-control-sm form-text" id="password"
+                                    name="confirmpass" required autofocus>
+
+                            </div>
+
+                            <div class="d-grid gap-2">
+                                <button type="submit" class="btn btn-primary btn-forms my-2"
+                                    type="button">Atualizar</button>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <?php
+        }
+        ?>
     </main>
     <!-- Bootstrap JavaScript Libraries -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"

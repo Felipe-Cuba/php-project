@@ -1,7 +1,6 @@
 <?php
-
-require('./assets/config/connect.php');
-
+require('./services/config/connect.php');
+session_start();
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">

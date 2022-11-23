@@ -12,13 +12,13 @@
 
     <?php
     session_start();
-    require('../assets/config/connect.php');
+    require('config/connect.php');
 
     if (isset($_POST['username']) and $_POST['username'] != '') {
 
         $username = $_POST['username'];
         $email = $_POST['email'];
-        $password = md5($_POST['password']);
+        $password = md5($_POST['pass']);
 
         try {
             $stmt = $conn->prepare('INSERT INTO users (`id`, `email`, `username`, `pass`, `active`) values (NULL, :email, :username, :pass, 1)');
