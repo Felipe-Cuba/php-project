@@ -19,15 +19,19 @@ if (isset($_POST['email']) and $_POST['email'] != '') {
     if (count($res) > 0) {
         foreach ($res as $row) {
             $id = $row['id'];
+            $usertype = $row['usertype'];
+            $username = $row['username'];
         }
-        if(!isset($_SESSION)){
+        if (!isset($_SESSION)) {
             session_start();
-			$_SESSION["id_usuario"] = $id;
-			header("Location:../loading-page.php?login=true");
-            echo "DEU CERTO!";
+            $_SESSION['idUsuario'] = $id;
+            $_SESSION['usertype'] = $usertype;
+            $_SESSION['username'] = $username;
+            header('Location:../loading-page.php?login=true');
+            echo 'DEU CERTO!';
         }
     } else {
-      header("Location:../loading-page.php?login=false");
+        header('Location:../loading-page.php?login=false');
     }
 
 }

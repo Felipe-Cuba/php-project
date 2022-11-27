@@ -15,17 +15,17 @@
 
     <script type="text/javascript">
         function sucesso() {
-            setTimeout("window.location='index.php'", 2000);
+            setTimeout("window.location='index.php'", 1500);
         }
 
         function falha() {
-            setTimeout("window.location='login.php'", 2000);
+            setTimeout("window.location='login.php?loginFailed=true '", 1500);
         }
     </script>
 
 </head>
 
-<body>
+<body class="form-body">
 
     <main>
         <div class="text-center loading">
