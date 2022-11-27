@@ -1,5 +1,6 @@
 <?php
 require('config/connect.php');
+session_start();
 
 if (isset($_POST['email'])) {
     $email = $_POST['email'];
@@ -14,6 +15,11 @@ if (isset($_POST['email'])) {
     }
 
     if (count($res) > 0) {
+        foreach ($res as $row) {
+            $id = $row['id'];
+        }
+
+        $_SESSION['idUsuario'] = $id;
         header("Location:../forgot-password.php?exists=true");
     } else {
         header("Location:../login.php");

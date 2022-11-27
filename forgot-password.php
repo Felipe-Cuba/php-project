@@ -16,7 +16,7 @@
 
 </head>
 
-<body>
+<body class="form-body">
     <main>
         <?php
         if (!isset($_GET['exists'])) {

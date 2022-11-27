@@ -59,7 +59,7 @@ $res = $smtm->fetchAll();
 
                 ?>
                 <li class="nav-item">
-                    <a class="nav-link" href="logout.php">Logout</a>
+                    <a class="nav-link logout" href="logout.php">Logout</a>
                 </li>
                 <?php
                 } else {
@@ -116,7 +116,8 @@ $res = $smtm->fetchAll();
                             <td>
                                 <?php echo $row['usertype'] == '1' ? 'Administrador' : 'Comum'; ?>
                             </td>
-                            <td><a href="./update-user.php?id=<?php echo $row['id'] ?>" class="btn btn-primary">Editar</a>
+                            <td><a href="./update-user.php?id=<?php echo $row['id'] ?>"
+                                    class="btn btn-primary">Editar</a>
                             </td>
                             <?php
                             if ($row['active'] == '1') {
@@ -150,20 +151,18 @@ $res = $smtm->fetchAll();
             </div>
         </div>
 
-        <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-        <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
-        <script src="https://cdn.datatables.net/1.13.1/js/dataTables.bootstrap5.min.js"></script>
 
-        <script type="text/javascript">
-            $(document).ready(function () {
-                $('#usertable').DataTable();
-            });
-        </script>
+
 
         <script src="./resources/js/jquery-3.6.1.min.js"></script>
         <script src="./resources/js/sweetalert2.all.min.js"></script>
+        <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
+        <script src="https://cdn.datatables.net/1.13.1/js/dataTables.bootstrap5.min.js"></script>
 
         <script>
+            $(document).ready(function () {
+                $('#usertable').DataTable();
+            });
             $('.btn-danger').on('click', function (e) {
                 e.preventDefault();
                 const href = $(this).attr('href');
@@ -222,7 +221,39 @@ $res = $smtm->fetchAll();
                         document.location.href = href;
                     }
                 })
-            })
+            });
+
+            function logout(href) {
+                swal.fire({
+                    title: `H4H4H4H4H4H4H`,
+                    text: 'Nunca se esqueça, aqueles que se conectam com o anfitrião nunca mais voltam a ser os mesmos! Até mais H4H4H4H4H4H4H',
+                    confirmButtonText: 'Ok',
+                    confirmButtonColor: '#6D214F'
+                }).then((result) => {
+                    if (result.value) {
+                        document.location.href = href;
+                    }
+                })
+            }
+
+            $('.logout').on('click', function (e) {
+                e.preventDefault();
+                const href = $(this).attr('href');
+
+                Swal.fire({
+                    title: 'Deseja se desconectar?',
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3b8746',
+                    cancelButtonColor: '#bd2630',
+                    confirmButtonText: 'Sim',
+                    cancelButtonText: 'Não'
+                }).then((result) => {
+                    if (result.value) {
+                        logout(href);
+                    }
+                })
+            });
         </script>
 
 

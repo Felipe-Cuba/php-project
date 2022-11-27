@@ -118,7 +118,9 @@ session_start();
                     confirmButtonText: 'Sim',
                     cancelButtonText: 'Não'
                 }).then((result) => {
-                    logout(href);
+                    if (result.value) {
+                        logout(href);
+                    }
                 })
             });
         </script>
