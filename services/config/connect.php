@@ -1,8 +1,8 @@
 <?php
 $host = "localhost";
 $user = "root";
-// $pass = "";
-$pass = "root";
+$pass = "";
+// $pass = "root";
 $dbname = "anfitras";
 
 try {
