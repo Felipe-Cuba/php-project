@@ -59,12 +59,6 @@ if (isset($_GET['id'])) {
                                     H4H4H4H4H4H4H4H4H4H4H4H4
                                 </h4>
 
-                                <div hidden class="form-group my-2">
-                                    <label for="emailAddress">Nome de usuário</label>
-                                    <input type="email" class="form-control form-control-sm form-text input-text" id="emailAddress"
-                                        name="id" value="<?php echo $id ?>" required autofocus disabled>
-                                </div>
-
                                 <div class="form-group my-2">
                                     <label for="emailAddress">Nome de usuário</label>
                                     <input type="text" class="form-control form-control-sm form-text input-text" id="emailAddress"

@@ -69,7 +69,7 @@
                     </div>
                     <div class="card-text mb-4 mt-4">
 
-                        <form method="post" action="./services/password-update-service.php" class="login-form">
+                        <form method="post" action="./services/password-update-service.php">
                             <h4 class="card-title title-form">
                                 DIGITE SUA NOVA SENHA
                             </h4>
