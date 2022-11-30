@@ -7,7 +7,7 @@ if (isset($_POST['username']) and $_POST['username'] != '') {
     $username = $_POST['username'];
     $email = $_POST['email'];
     $password = md5($_POST['pass']);
-
+    
     try {
         $smtm = $conn->prepare('SELECT * FROM `users` WHERE `email` = :email');
         $smtm->bindParam('email', $email);

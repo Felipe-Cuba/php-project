@@ -2,7 +2,7 @@
 <html lang="pt-br">
 
     <head>
-        <title>Title</title>
+        <title>Entrar</title>
         <!-- Required meta tags -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -26,14 +26,14 @@
                     <div class="card-body">
                         <div class="text-center">
                             <img src="./resources/imgs/anfitras.webp" alt="" height="150">
-                            <h3 class="card-title">
+                            <h3 class="card-title title-form">
                                 H4H4H4H4H4H4
                             </h3>
                         </div>
                         <div class="card-text mb-4 mt-4">
 
-                            <form method="post" action="./services/login-service.php" class="login-form">
-                                <h4 class="card-title">
+                            <form method="post" action="./services/login-service.php">
+                                <h4 class="card-title title-form">
                                     SE CONECTE AO ANFITRIÃO
                                 </h4>
                                 <div class="hide" id="alertForm">
@@ -44,14 +44,14 @@
                                 </div>
                                 <div class="form-group my-2">
                                     <label for="emailAddress">Endereço de email</label>
-                                    <input type="email" class="form-control form-control-sm form-text" id="emailAddress"
+                                    <input type="email" class="form-control form-control-sm form-text input-text" id="emailAddress"
                                         name="email" required autofocus >
 
                                 </div>
 
                                 <div class="form-group my-2">
                                     <label for="password">Senha</label>
-                                    <input type="password" class="form-control form-control-sm form-text" id="password"
+                                    <input type="password" class="form-control form-control-sm form-text input-text" id="password"
                                         name="pass" required>
                                     <a href="forgot-password.php" class="form-links">Esqueceu a senha?</a>
                                 </div>

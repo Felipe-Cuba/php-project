@@ -2,7 +2,7 @@
 <html lang="pt-br">
 
     <head>
-        <title>Title</title>
+        <title>Cadastro</title>
         <!-- Required meta tags -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -28,15 +28,15 @@
                     <div class="card-body">
                         <div class="text-center">
                             <img src="./resources/imgs/anfitras.webp" alt="" height="150">
-                            <h3 class="card-title">
+                            <h3 class="card-title title-form">
                                 H4H4H4H4H4H4H4H4
                             </h3>
                         </div>
 
                         <div class="card-text mb-4 mt-4">
 
-                            <form method="post" action="./services/register-service.php" class="login-form">
-                                <h4 class="card-title">
+                            <form method="post" action="./services/register-service.php">
+                                <h4 class="card-title title-form">
                                     VAMOS COMEÇAR OS JOGOS?
                                 </h4>
                                 <div class="hide" id="alertForm">
@@ -47,21 +47,21 @@
 
                                 <div class="form-group my-2">
                                     <label for="userName" class="mb-2">Nome de usuário</label>
-                                    <input type="text" class="form-control form-control-sm form-text" id="userName"
+                                    <input type="text" class="form-control form-control-sm form-text input-text" id="userName"
                                         name="username" required autofocus>
 
                                 </div>
 
                                 <div class="form-group my-2">
                                     <label for="emailAddress" class="mb-2">Endereço de email</label>
-                                    <input type="email" class="form-control form-control-sm form-text" id="emailAddress"
+                                    <input type="email" class="form-control form-control-sm form-text input-text" id="emailAddress"
                                         name="email" required>
 
                                 </div>
 
                                 <div class="form-group my-2" class="mb-2">
                                     <label for="password">Senha</label>
-                                    <input type="password" class="form-control form-control-sm form-text" id="password"
+                                    <input type="password" class="form-control form-control-sm form-text input-text" id="password"
                                         name="pass" required>
                                 </div>
 

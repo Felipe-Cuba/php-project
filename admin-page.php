@@ -12,7 +12,7 @@ $res = $smtm->fetchAll();
 <html lang="pt-br">
 
     <head>
-        <title>Title</title>
+        <title>Administração</title>
         <!-- Required meta tags -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -58,6 +58,10 @@ $res = $smtm->fetchAll();
                     }
 
                 ?>
+                <li class="nav-item">
+                    <a class="nav-link" href="profile-page.php">Perfil</a>
+                </li>
+
                 <li class="nav-item">
                     <a class="nav-link logout" href="logout.php">Logout</a>
                 </li>

@@ -9,9 +9,6 @@ if (isset($_POST['pass']) and isset($_SESSION['idUsuario'])) {
     
     if ($pass == $confirmpass) {
         try {
-
-            echo "Chegou aqui";
-
             $smtm = $conn->prepare('UPDATE `users` SET `pass` = :pass WHERE `id` = :id');
             $smtm->bindParam('pass', $pass);
             $smtm->bindParam('id', $id);

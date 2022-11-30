@@ -27,7 +27,7 @@ if (isset($_GET['id'])) {
 <html lang="pt-br">
 
     <head>
-        <title>Title</title>
+        <title>Alterar Usuário</title>
         <!-- Required meta tags -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -39,9 +39,6 @@ if (isset($_GET['id'])) {
         <!-- Css -->
         <link rel="stylesheet" href="./resources/css/style.css">
 
-        <!-- Scripts -->
-        <script type="text/javascript" src="./resources/js/index.js"></script>
-
     </head>
 
     <body class="form-body">
@@ -51,32 +48,32 @@ if (isset($_GET['id'])) {
                     <div class="card-body">
                         <div class="text-center">
                             <img src="./resources/imgs/anfitras.webp" alt="" height="150">
-                            <h3 class="card-title">
+                            <h3 class="card-title title-form">
                                 H4H4H4H4H4H4
                             </h3>
                         </div>
                         <div class="card-text mb-4 mt-4">
 
-                            <form method="post" action="./services/update-user-service.php?id=<?php echo $id ?>" class="login-form" onsubmit="return submitForm(this)">
-                                <h4 class="card-title">
+                            <form method="post" action="./services/update-user-service.php?id=<?php echo $id ?>" onsubmit="return submitForm(this)">
+                                <h4 class="card-title title-form">
                                     H4H4H4H4H4H4H4H4H4H4H4H4
                                 </h4>
 
                                 <div hidden class="form-group my-2">
                                     <label for="emailAddress">Nome de usuário</label>
-                                    <input type="email" class="form-control form-control-sm form-text" id="emailAddress"
+                                    <input type="email" class="form-control form-control-sm form-text input-text" id="emailAddress"
                                         name="id" value="<?php echo $id ?>" required autofocus disabled>
                                 </div>
 
                                 <div class="form-group my-2">
                                     <label for="emailAddress">Nome de usuário</label>
-                                    <input type="text" class="form-control form-control-sm form-text" id="emailAddress"
+                                    <input type="text" class="form-control form-control-sm form-text input-text" id="emailAddress"
                                         name="username" value="<?php echo $username ?>" required autofocus>
                                 </div>
 
                                 <div class="form-group my-2">
                                     <label for="emailAddress">Endereço de email</label>
-                                    <input type="email" class="form-control form-control-sm form-text" id="emailAddress"
+                                    <input type="email" class="form-control form-control-sm form-text input-text" id="emailAddress"
                                         name="email" value="<?php echo $email ?>" required autofocus disabled>
                                 </div>
 

@@ -20,7 +20,7 @@ body {
     color: #f5f6fa;
 }
 
-.card-title {
+.title-form {
     text-shadow: 0 0 10px #e1acff;
 }
 
@@ -28,22 +28,27 @@ body {
     padding-top: 10px;
     font-size: 14px;
     margin-top: 30px;
+
+    background-color: #2a1552;
+    border-color: #ac64ff;
+    box-shadow: 0 0 20px #ac64ff;
+    min-width: 250px !important;
 }
 
-.card {
+/* .card {
     background-color: #2a1552;
     border-color: #ac64ff;
     box-shadow: 0 0 20px #ac64ff;
     min-width: 250px;
-}
+} */
 
-.form-text {
+.input-text {
     background: #ebc8ff;
     border: none;
     font-size: 18px;
 }
 
-.form-text:focus {
+.input-text:focus {
     background: #fdf6ff;
     outline: none;
     border-color: #7abeca;
@@ -162,4 +167,39 @@ a .fa-solid {
 
 .text-index h1 {
     font-size: 50px;
+}
+
+/* CARD USER */
+
+.profile-form {
+    max-width: 600px;
+    min-width: 250px;
+}
+
+.title-card-user {
+    text-transform: uppercase;
+    font-size: 40PX;
+    font-weight: bold;
+}
+
+.profile-form-input {
+    max-height: 50px;
+    font-size: 20px;
+}
+
+.profile-form-input:focus{
+    outline: none;
+    border-color: #94d4ff;
+    box-shadow: 0 0 10px #94d4ff;
+}
+
+.btn-profile{
+    background-color: #9748ff;
+    color: white;
+    transition: .3s;
+}
+
+.btn-profile:hover{
+    background-color: #8223ff;
+    color: white;
 }

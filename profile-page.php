@@ -20,16 +20,18 @@ session_start();
         <link rel="stylesheet" href="./resources/css/style.css">
     </head>
 
-    <body class="form-body">
+    <body>
 
         <nav class="nav justify-content-end navbar">
             <ul class="nav justify-content-end me-5">
                 <li class="nav-item">
-                    <a class="nav-link active" href="index.php">Home</a>
+                    <a class="nav-link" href="index.php">Home</a>
                 </li>
 
                 <?php
                 if (isset($_SESSION['idUsuario'])) {
+                    $id = $_SESSION['idUsuario'];
+
                     if (isset($_SESSION['usertype']) and $_SESSION['usertype'] == '1') {
 
 
@@ -47,7 +49,7 @@ session_start();
 
                 ?>
                 <li class="nav-item">
-                    <a class="nav-link" href="profile-page.php">Perfil</a>
+                    <a class="nav-link active" href="profile-page.php">Perfil</a>
                 </li>
 
                 <li class="nav-item">
@@ -69,33 +71,71 @@ session_start();
                 ?>
             </ul>
         </nav>
-        <div class="align-items-center justify-content-center">
-            <div class="text-center">
-                <img src="./resources/imgs/anfitras.webp" width="800vw" class="rounded" alt="...">
-            </div>
 
-            <div class="text-center text-index">
-                <h1>ANFITRIÃO</h1>
+        <?php
+        try {
+            $smtm = $conn->prepare('SELECT * FROM `users` WHERE id = :id');
+            $smtm->bindParam(':id', $id);
+            $smtm->execute();
+            $res = $smtm->fetchAll();
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+        }
+
+        if (isset($res)) {
+            if (count($res) > 0) {
+                foreach ($res as $row) {
+                    $username = $row['username'];
+                    $email = $row['email'];
+                }
+
+        ?>
+        <div class="justify-content-center align-items-center d-flex flex-row">
+            <div class="card text-center mt-5 profile-form">
+                <div class="card-header">
+                    <p class="title-card-user">
+                        INFORMAÇÕES DO USUÁRIO
+                    </p>
+                </div>
+                <div class="card-body">
+                    <form action="./services/update-user-profile-service.php" method="post">
+                        <div class="form-group my-2">
+                            <label for="userName">Nome de usuário</label>
+                            <input type="text" class="form-control form-control-sm form-text profile-form-input"
+                                id="userName" name="username" placeholder="<?php echo $username ?>">
+                        </div>
+                        <div class="form-group my-2">
+                            <label for="email">Seu email</label>
+                            <input type="email" class="form-control form-control-sm form-text profile-form-input "
+                                id="email" value="<?php echo $email ?>" disabled>
+                        </div>
+                        <div class="form-group my-2">
+                            <label for="password">Senha</label>
+                            <input type="password" class="form-control form-control-sm form-text profile-form-input "
+                                id="password" name="password">
+                        </div>
+                        <div class="form-group my-2">
+                            <input type="submit"
+                                class="btn-profile form-control form-control-sm form-textprofile-form-input btn mt-4"
+                                value="Alterar">
+                        </div>
+                    </form>
+                </div>
+
             </div>
         </div>
 
 
+        <?php
+            }
+        }
 
+        ?>
 
         <script src="./resources/js/jquery-3.6.1.min.js"></script>
         <script src="./resources/js/sweetalert2.all.min.js"></script>
 
         <script>
-            function login(nome) {
-                swal.fire({
-                    icon: 'Success',
-                    title: `Bem vindo ${nome}`,
-                    text: 'O Anfitrião lhe da as boas vindas! H4H4H4H4H4H4H4H4',
-                    confirmButtonText: 'Ok',
-                    confirmButtonColor: '#6D214F'
-                });
-            }
-
             function logout(href) {
                 swal.fire({
                     title: `H4H4H4H4H4H4H`,
@@ -127,18 +167,24 @@ session_start();
                     }
                 })
             });
+
+            function updatePassword() {
+                swal.fire({
+                    icon: 'Success',
+                    title: `Senha alterada com sucesso`,
+                    confirmButtonText: 'Ok',
+                    confirmButtonColor: '#6D214F'
+                })
+            }
         </script>
 
         <?php
-        if (isset($_SESSION['idUsuario']) and isset($_SESSION['username'])) {
-            $username = $_SESSION['username'];
-            $parts = explode(' ', $username);
-            $firstname = $parts[0];
+        if (isset($_GET['passwordUpdate']) and $_GET['passwordUpdate'] == 'true') {
         ?>
-        <script>login('<?php echo $firstname ?>')</script>
+        <script>
+            updatePassword();
+        </script>
         <?php
-
-            $_SESSION['username'] = null;
         }
         ?>
 
